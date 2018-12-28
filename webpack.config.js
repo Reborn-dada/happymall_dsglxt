@@ -12,7 +12,8 @@ module.exports = {
     },
     resolve: {
         alias: {
-            page:path.resolve(__dirname,'src/page')
+            page:path.resolve(__dirname,'src/page'),
+            component:path.resolve(__dirname,'src/component')
         }
     },
     module: {
