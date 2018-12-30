@@ -29,7 +29,7 @@ class NavTop extends React.Component {
                                             <em>Today</em>
                                         </span>
                                     </div>
-                                    <div>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...</div>
+                                    <div>Lorem ...</div>
                                 </a>
                             </li>
                             <li className="divider"></li>
