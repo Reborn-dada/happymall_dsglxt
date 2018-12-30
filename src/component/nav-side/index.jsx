@@ -22,16 +22,7 @@ class NavSide extends React.Component {
                         <li>
                             <a href="chart.html"><i className="fa fa-bar-chart-o"></i> Charts</a>
                         </li>
-                        <li>
-                            <a href="tab-panel.html"><i className="fa fa-qrcode"></i> Tabs &amp; Panels</a>
-                        </li>
-
-                        <li>
-                            <a href="table.html"><i className="fa fa-table"></i> Responsive Tables</a>
-                        </li>
-                        <li>
-                            <a href="form.html"><i className="fa fa-edit"></i> Forms </a>
-                        </li>
+                        
 
 
                         <li>
