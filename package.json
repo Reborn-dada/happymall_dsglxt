@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "antd": "^3.12.4",
+    "rc-pagination": "1.15.1",
     "react": "16.2.0",
     "react-dom": "16.2.0",
     "react-router-dom": "4.2.2"
