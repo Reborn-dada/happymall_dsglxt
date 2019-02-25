@@ -41,10 +41,12 @@ class MUtil {
         //result :['param=123','','123','&']
         return result?decodeURIComponent(result[2]):null;
     }
-
+    successTips(successMsg){
+        alert(successMsg || '操作成功');
+    }
     //获取错误提示
     errorTips(errMsg){
-        alert(errMsg || '好像哪里不对了')
+        alert(errMsg || '好像哪里不对了');
     }
     //本地存储
     setStorage(name,data){
