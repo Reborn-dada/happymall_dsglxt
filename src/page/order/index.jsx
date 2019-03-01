@@ -18,7 +18,9 @@ class OrderList extends React.Component {
         this.state = {
             list: [],
             pageNum: 1,
-            listType: 'list'
+            listType: 'list',
+            searchType:'orderNo',
+            searchKeyword:'',
         }
     }
     componentDidMount() {
@@ -45,7 +47,7 @@ class OrderList extends React.Component {
         });
     }
     onSearch(searchType, searchKeyword) {
-        console.log(searchType, searchKeyword)
+        console.log('aaaa:',searchType, searchKeyword)
         let listType = searchKeyword === '' ? 'list' : 'search';
         this.setState({
             listType: listType,
@@ -53,7 +55,7 @@ class OrderList extends React.Component {
             searchType: searchType,
             searchKeyword: searchKeyword
         }, () => {
-            this.loadProductList();
+            this.loadOrderList();
         })
     }
     onPageNumChange(pageNum) {
@@ -62,6 +64,14 @@ class OrderList extends React.Component {
         }, () => {
             this.loadOrderList()
         })
+    }
+    onValueChange(e){
+        let name = e.target.name,
+            value= e.target.value.trim();
+        this.setState({
+            [name]:value
+        })
+        console.log('aaaaaaa',this.state)
     }
     onSearchKeywordKeyUp(e){
         if(e.keyCode===13){
@@ -89,7 +99,7 @@ class OrderList extends React.Component {
                                         onChange={(e) => { this.onValueChange(e) }} />
                                 </div>
                                 <button type="button" className="btn btn-primary"
-                                    onClick={(e) => this.onSearch(e)}>搜索</button>
+                                    onClick={(e,searchType,searchKeyword) => this.onSearch(e,searchType,searchKeyword)}>搜索</button>
                             </div>
                         </div>
                     </div>
