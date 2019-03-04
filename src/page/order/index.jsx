@@ -20,23 +20,24 @@ class OrderList extends React.Component {
             pageNum: 1,
             listType: 'list',
             searchType:'orderNo',
-            searchKeyword:'',
+            searchKeyword:''
         }
     }
     componentDidMount() {
         this.loadOrderList()
+        
     }
     //加载商品列表
-    loadOrderList() {
+    loadOrderList(){
         let listParam = {};
         listParam.listType = this.state.listType;
         listParam.pageNum = this.state.pageNum;
         //如果是搜索的话，需要传入搜索类型和搜索关键字
         if (this.state.listType === 'search') {
-            listParam.searchType = this.state.searchType;
-            listParam.keyword = this.state.searchKeyword
+            listParam.searchType = 'orderNo';
+            listParam.keyword = this.state.searchKeyword;
         }
-        //请求接口a
+        //请求接口
         _order.getOrderList(listParam).then(res => {
             this.setState(res)
         }, errMsg => {
@@ -46,8 +47,7 @@ class OrderList extends React.Component {
             _mm.errorTips(errMsg);
         });
     }
-    onSearch(searchType, searchKeyword) {
-        console.log('aaaa:',searchType, searchKeyword)
+    onSearch(searchType,searchKeyword) {
         let listType = searchKeyword === '' ? 'list' : 'search';
         this.setState({
             listType: listType,
@@ -66,12 +66,10 @@ class OrderList extends React.Component {
         })
     }
     onValueChange(e){
-        let name = e.target.name,
-            value= e.target.value.trim();
         this.setState({
-            [name]:value
-        })
-        console.log('aaaaaaa',this.state)
+            searchKeyword:e.target.value.trim()
+        },console.log('aaaaaaa',this.state))
+        
     }
     onSearchKeywordKeyUp(e){
         if(e.keyCode===13){
@@ -87,8 +85,7 @@ class OrderList extends React.Component {
                             <div className="form-inline">
                                 <div className="form-group">
                                     <select className="form-control"
-                                        name="searchType"
-                                        onChange={(e) => { this.onValueChange(e) }}>
+                                        name="searchType">
                                         <option value="orderNo">按订单号查询</option>
                                     </select>
                                 </div>
@@ -99,7 +96,7 @@ class OrderList extends React.Component {
                                         onChange={(e) => { this.onValueChange(e) }} />
                                 </div>
                                 <button type="button" className="btn btn-primary"
-                                    onClick={(e,searchType,searchKeyword) => this.onSearch(e,searchType,searchKeyword)}>搜索</button>
+                                    onClick={(e,searchKeyword) => this.onSearch(e,this.state.searchKeyword)}>搜索</button>
                             </div>
                         </div>
                     </div>
