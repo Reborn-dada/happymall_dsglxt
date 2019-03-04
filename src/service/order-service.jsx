@@ -17,7 +17,7 @@ class Order{
             data[listParam.searchType]=listParam.keyword;
         }
         return _mm.request({
-            type:'post',
+            type:'get',
             url:url,
             data:data
         })
