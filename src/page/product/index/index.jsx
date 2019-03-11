@@ -82,8 +82,14 @@ class ProductList extends React.Component{
         return(
             <div id="page-wrapper">
                 <PageTitle title="商品列表">
-                    <ListSearch onSearch={(searchType,searchKeyword)=>{this.onSearch(searchType,searchKeyword)}}/>
+                    <div className="page-header-right">
+                        <Link to="/product/save" className="btn btn-primary">
+                            <i className="fa fa-plus"></i>
+                            <span>添加商品</span>
+                        </Link>
+                    </div>
                 </PageTitle>
+                <ListSearch onSearch={(searchType,searchKeyword)=>{this.onSearch(searchType,searchKeyword)}}/>
                 <div className="row">
                     <div className="col-md-12">
                         <table className="table table-striped table-bordered">
